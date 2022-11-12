@@ -1,0 +1,23 @@
+version: '2.3'
+
+services:
+  torch:
+    build: .
+    runtime: nvidia
+    ports:
+      - 5678:5678
+      - 80:80
+    devices:
+      - "/dev/nvidia0:/dev/nvidia0"
+      - "/dev/nvidiactl:/dev/nvidiactl"
+      - "/dev/nvidia-modeset:/dev/nvidia-modeset"
+      - "/dev/nvidia-uvm:/dev/nvidia-uvm"
+      - "/dev/nvidia-uvm-tools:/dev/nvidia-uvm-tools"
+    volumes:
+      - "./demodata:/app/demodata"
+    ipc: host
+    privileged: true
+    network_mode: "host"
+    environment:
+      - DISPLAY=${DISPLAY}
+      - LD_LIBRARY_PATH=/usr/local/cuda/lib:/usr/local/cuda/lib64

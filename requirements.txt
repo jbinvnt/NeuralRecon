@@ -12,5 +12,5 @@ h5py
 loguru
 gdown # for downloading checkpoints
 pyrender~=0.1.45
-pyglet
+pyglet~=1.5.27
 open3d # for tsdf fusion in evaluation
