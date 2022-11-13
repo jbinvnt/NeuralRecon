@@ -12,7 +12,7 @@ WORKDIR /app
 COPY environment.yaml .
 COPY requirements.txt .
 
-
 RUN conda env create -f environment.yaml
 COPY . .
-CMD ["/bin/bash"]
+RUN chmod +x entrypoint.sh
+CMD ["/bin/bash", "entrypoint.sh"]

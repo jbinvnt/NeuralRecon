@@ -1,19 +1,7 @@
-#!/bin/bash --login
-# The --login ensures the bash configuration is loaded,
-# enabling Conda.
-
-# Enable strict mode.
-set -euo pipefail
-# ... Run whatever commands ...
-
-conda init bash
-
-# Temporarily disable strict mode and activate conda:
-set +euo pipefail
+#!/bin/bash
+source /opt/conda/etc/profile.d/conda.sh
 conda activate neucon
-
-# Re-enable strict mode:
-set -euo pipefail
-
-# exec the final command:
-exec python demo.py --cfg ./config/demo.yaml
+#FORCE_CUDA=1 pip install --no-cache-dir git+https://github.com/mit-han-lab/torchsparse.git@v1.4.0
+pip uninstall -y torchsparse
+pip install --no-cache-dir git+https://github.com/mit-han-lab/torchsparse.git@v1.4.0
+python demo.py --cfg ./config/demo.yaml
