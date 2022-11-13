@@ -1,4 +1,4 @@
-FROM pytorch/pytorch:1.6.0-cuda10.2-cudnn8-devel
+FROM pytorch/pytorch:1.7.0-cuda11.0-cudnn8-devel
 #FROM nvidia/cuda:10.1-devel-ubuntu18.04
 RUN apt-get -y -o Acquire::AllowInsecureRepositories=true \
 -o Acquire::AllowDowngradeToInsecureRepositories=true \
@@ -15,4 +15,4 @@ COPY requirements.txt .
 
 RUN conda env create -f environment.yaml
 COPY . .
-CMD ["/bin/bash", "-c", "conda init bash && bash -c 'conda activate neucon'"]
+CMD ["/bin/bash"]
