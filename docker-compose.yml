@@ -20,4 +20,3 @@ services:
     network_mode: "host"
     environment:
       - DISPLAY=${DISPLAY}
-      - LD_LIBRARY_PATH=/usr/local/cuda/lib:/usr/local/cuda/lib64
