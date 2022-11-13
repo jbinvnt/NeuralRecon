@@ -13,6 +13,7 @@ COPY environment.yaml .
 COPY requirements.txt .
 
 RUN conda env create -f environment.yaml
+#RUN apt-get -y --allow-unauthenticated install libnvidia-gl
 COPY . .
 RUN chmod +x entrypoint.sh
 CMD ["/bin/bash", "entrypoint.sh"]
