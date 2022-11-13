@@ -1,4 +1,4 @@
-FROM pytorch/pytorch:1.7.0-cuda11.0-cudnn8-devel
+FROM pytorch/pytorch:1.6.0-cuda10.1-cudnn7-devel
 #FROM nvidia/cuda:10.1-devel-ubuntu18.04
 RUN apt-get -y -o Acquire::AllowInsecureRepositories=true \
 -o Acquire::AllowDowngradeToInsecureRepositories=true \
