@@ -14,13 +14,5 @@ COPY requirements.txt .
 
 
 RUN conda env create -f environment.yaml
-COPY entrypoint.sh .
-RUN chmod +x entrypoint.sh
-RUN echo "conda activate neucon" >> ~/.profile
-# see https://pythonspeed.com/articles/activate-conda-dockerfile/
-# Make RUN commands use the new environment:
-#ENV PATH /opt/conda/envs/$conda_env/bin:$PATH
-#ENV CONDA_DEFAULT_ENV $conda_env
-#RUN /bin/bash -c "source activate neucon"
 COPY . .
-CMD ["bash"]
+CMD ["/bin/bash", "-c", "conda init bash && bash -c 'conda activate neucon'"]
